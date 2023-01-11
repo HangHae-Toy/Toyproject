@@ -51,7 +51,7 @@
 
         .card {
             width: 260px;
-            height: 320px;
+            height: 360px;
 
 
             margin: 5px;
@@ -117,7 +117,8 @@
         button{
             position: relative;
             text-align: center;
-            margin-left: 5px;
+
+
 
         }
 
@@ -204,8 +205,9 @@
                 <div class="name">${data.품종}</div>
                 <div class="gender">${data.성별}</div>
                 <div class="age">${data.나이}</div>
-            <button type="button" class="btn btn-dark" data-bs-toggle="modal" data-bs-target="#exampleModal">입양신청</button>
-            </div>
+                </div>
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="${data.공고번호}">입양신청</button><button type="button" class="btn btn-dark" onClick="pageMove('${data.공고번호}')">상세보기</button>
+
 
         </div>`)
             })
@@ -213,20 +215,20 @@
 
         }
 
-    function save_order() {
-    let name = $('#name').val()
-    let age = $('#age').val()
-    let gender = $('#gender').val()
-    $.ajax({
-    type: 'POST',
-    url: '/animal',
-    data: {name_give: name, age_give: age, gender_give: gender},
-    success: function (response) {
-    alert(response['msg'])
-    window.location.reload()
-    }
-    });
-    }
+    function pageMove(index){
+                location.href="/saveAdoptView?index_give="+index;
+            }
+            function save_comment() {
+            $.ajax({
+                type: 'POST',
+                url: '/saveAdopt',
+                data: {index_give:$('#index').val(), name_give: $('#name').val(), age_give : $('#age').val(), address_give : $('#address').val(), reason_give : $('#reason').val()},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
+                }
+            })
+        }
     </script>
 
 
@@ -255,32 +257,60 @@
 </div>
 
 
+
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="exampleModalLabel">입양신청서</h1>
+
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body">
         <form>
+            <input type="hidden" class="form-control" id="index" >
           <div class="mb-3">
-            <label for="recipient-name" class="col-form-label">성함</label>
-            <input type="text" class="form-control" id="recipient-name">
+
+            <label for="recipient-name" class="col-form-label">이름 :</label>
+            <input type="text" class="form-control" id="name">
+
+          </div>
+            <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">나이 :</label>
+            <input type="text" class="form-control" id="age">
+          </div>
+            <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">주소 :</label>
+            <input type="text" class="form-control" id="address">
           </div>
           <div class="mb-3">
-            <label for="message-text" class="col-form-label">신청목적</label>
-            <textarea class="form-control" id="message-text"></textarea>
+            <label for="message-text" class="col-form-label">입양 이유 (200자 이내)</label>
+            <textarea class="form-control" id="reason" maxlength="200"></textarea>
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Send message</button>
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="save_comment()">입양신청</button>
       </div>
     </div>
   </div>
 </div>
-
 </body>
 </html>
+<script>
+
+      const exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', event => {
+
+  const button = event.relatedTarget
+
+  const recipient = button.getAttribute('data-bs-whatever')
+
+  const modalTitle = exampleModal.querySelector('.modal-title')
+  const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = `New message to ${recipient}`
+  modalBodyInput.value = recipient
+})
+</script>
