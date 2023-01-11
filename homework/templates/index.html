@@ -2,165 +2,315 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta property="og:title" content="십센치(10cm) 팬명록" />
-    <meta property="og:description" content="응원 한마디 남기고 가세요" />
-    <meta property="og:image" content="https://cdn.topstarnews.net/news/photo/201807/456143_108614_510.jpg" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-        crossorigin="anonymous"></script>
-
-    <title>초미니홈피 - 팬명록</title>
-
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@200;300;400;500;600;700;900&display=swap" rel="stylesheet">
+            integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+            crossorigin="anonymous"></script>
+    <title>Card Menu</title>
     <style>
         * {
-            font-family: 'Noto Serif KR', serif;
+            margin: 0 auto;
+            margin-top: 10px;
+            font-family: sans-serif;
         }
-        .mypic {
-            width: 100%;
-            height: 300px;
 
-            background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://cdn.topstarnews.net/news/photo/201807/456143_108614_510.jpg');
-            background-position: center 30%;
+        body {
+            background-image: url("https://t1.daumcdn.net/cfile/tistory/232F5B40583C93D723");
+            background-position: center;
             background-size: cover;
 
-            color: white;
+        }
 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            min-width: 370px;
+
+        }
+
+        header {
+            height: 200px;
+            text-align: center;
+        }
+
+        h1 {
+            margin-top: 40px;
+            text-decoration: coral underline;
+            text-underline-position: under;
+            line-height: 100px;
+        }
+
+        section {
+            width: 1200px;
+        }
+
+        .card {
+            width: 260px;
+            height: 360px;
+
+
+            margin: 5px;
+            float: left;
+            box-shadow: 0px 0px 10px 0px black;
+        }
+
+        .card img {
+            width: 250px;
+            height: 200px;
+        }
+
+        p {
+            line-height: 14px;
+            margin: 10px;
+            margin-top: -10px;
+        }
+
+        .keyword {
             justify-content: center;
-        }
-
-        .mypost {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto 20px auto;
-
-            box-shadow: 0px 0px 3px 0px black;
-            padding: 20px;
-        }
-
-        .mypost > button {
-            margin-top: 15px;
-        }
-
-        .mycards {
-            width: 95%;
-            max-width: 500px;
-            margin: auto;
-        }
-
-        .mycards > .card {
+            display: flex;
+            flex-direction: row;
+            text-align: center;
             margin-top: 10px;
-            margin-bottom: 10px;
+
         }
+        .btn{
+            justify-content: center;
+            display: flex;
+            flex-direction: row;
+            text-align: center;
+            margin-top: 10px;
+
+        }
+
+        .gender {
+            position: relative;
+            background-color: wheat;
+            color: brown;
+            padding-top: 6px;
+
+
+        }
+
+        .name {
+            position: relative;
+            background-color: #CCCCFF;
+            color: brown;
+            padding-top: 6px;
+
+
+
+        }
+
+        .age {
+            position: relative;
+            background-color: #FFCCCC;
+            color: brown;
+            padding-top: 6px;
+
+
+        }
+        button{
+            position: relative;
+            text-align: center;
+
+
+
+        }
+
+        footer {
+            clear: both;
+            text-align: center;
+            line-height: 50px;
+        }
+
+        @media (min-width: 1280px) {
+            section {
+                width: 1080px;
+                height: 580px;
+            }
+        }
+
+        @media (max-width: 1279px) {
+            section {
+                width: 780px;
+                height: 870px;
+            }
+        }
+
+        @media (max-width: 900px) {
+            section {
+                width: 520px;
+                height: 1160px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            section {
+                width: 260px;
+                height: 2320px;
+            }
+        }
+
+
     </style>
     <script>
-		$(document).ready(function(){
-            set_temp()
-            show_comment()
+        $(document).ready(function () {
+
+            show_order2();
         });
-        function set_temp(){
+
+        function show_order2() {
             $.ajax({
                 type: "GET",
-                url: "http://spartacodingclub.shop/sparta_api/weather/seoul",
+                url: "https://api.odcloud.kr/api/15086791/v1/uddi:1f67b250-aa73-480c-ae30-b7bdd2e02da4?page=1&perPage=20&serviceKey=1diejny8Ce4tIG20B5zyyXpcq7j36c7fnXgb5vHRPWHlP0jleBV9jVx6hKOace5zyDY%2BXklSCfZePFSf2KLg4g%3D%3D",
                 data: {},
+                async: false,
                 success: function (response) {
-                    $('#temp').text(response['temp'])
+
+                    tmp = response.data;
+
+                }
+            })
+            var tmp2 = [];
+            tmp.map((data, idx) => {
+
+                if (data.축종 == "개") {
+                    url = "https://api.thedogapi.com/v1/images/search"
+                } else {
+                    url = "https://api.thecatapi.com/v1/images/search"
+                }
+
+                $.ajax({
+                    type: "GET",
+
+                    url: url,
+                    data: {},
+                    async: false,
+                    success: function (response) {
+                        tmp2[idx] = response[0].url;
+
+                    }
+                })
+            })
+
+            tmp.map((data, idx) => {
+                $('#a').append(`<div class="card"><img
+                src="${tmp2[idx]}">
+                <div class="keyword" >
+                <div class="name">${data.품종}</div>
+                <div class="gender">${data.성별}</div>
+                <div class="age">${data.나이}</div>
+                </div>
+            <button type="button" class="btn btn-info" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="${data.공고번호}">입양신청</button><button type="button" class="btn btn-dark" onClick="pageMove('${data.공고번호}')">상세보기</button>
+
+
+        </div>`)
+            })
+
+
+        }
+
+    function pageMove(index){
+                location.href="/saveAdoptView?index_give="+index;
+            }
+            function save_comment() {
+            $.ajax({
+                type: 'POST',
+                url: '/saveAdopt',
+                data: {index_give:$('#index').val(), name_give: $('#name').val(), age_give : $('#age').val(), address_give : $('#address').val(), reason_give : $('#reason').val()},
+                success: function (response) {
+                    alert(response['msg'])
+                    window.location.reload()
                 }
             })
         }
-        function save_comment() {
-            let name = $('#name').val()
-            let comment = $('#comment').val()
-
-            $.ajax({
-                type: "POST",
-                url: "/homework",
-                data: {'name_give':name, 'comment_give':comment},
-                success: function (response) {
-                    alert(response["msg"])
-                    window.location.reload()
-                }
-            });
-        }
-        function show_comment() {
-            $('#comment-list').empty()
-            $.ajax({
-                type: "GET",
-                url: "/homework",
-                data: {},
-                success: function (response) {
-                    let rows = response['comments']
-                    for (let i = 0; i < rows.length; i++) {
-                        let name = rows[i]['name']
-                        let comment = rows[i]['comment']
-
-                        let temp_html = `<div class="card">
-                                            <div class="card-body">
-                                                <blockquote class="blockquote mb-0">
-                                                    <p>${comment}</p>
-                                                    <footer class="blockquote-footer">${name}</footer>
-                                                </blockquote>
-                                            </div>
-                                        </div>`
-                        $('#comment-list').append(temp_html)
-                    }
-                }
-            });
-        }
     </script>
+
+
+
 </head>
+
 <body>
-    <div class="mypic">
-        <h1>십센치(10cm) 팬명록</h1>
-        <p>현재기온: <span id="temp">36</span>도</p>
+<div class="container">
+
+    <header>
+        <h1></h1>
+        <p>
+
+        </p>
+    </header>
+
+    <section id="a">
+
+
+    </section>
+
+    <footer>
+
+    </footer>
+
+</div>
+
+
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">입양신청서</h1>
+
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <form>
+            <input type="hidden" class="form-control" id="index" >
+          <div class="mb-3">
+
+            <label for="recipient-name" class="col-form-label">이름 :</label>
+            <input type="text" class="form-control" id="name">
+
+          </div>
+            <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">나이 :</label>
+            <input type="text" class="form-control" id="age">
+          </div>
+            <div class="mb-3">
+            <label for="recipient-name" class="col-form-label">주소 :</label>
+            <input type="text" class="form-control" id="address">
+          </div>
+          <div class="mb-3">
+            <label for="message-text" class="col-form-label">입양 이유 (200자 이내)</label>
+            <textarea class="form-control" id="reason" maxlength="200"></textarea>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">닫기</button>
+        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" onclick="save_comment()">입양신청</button>
+      </div>
     </div>
-    <div class="mypost">
-        <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="name" placeholder="url">
-            <label for="floatingInput">닉네임</label>
-        </div>
-        <div class="form-floating">
-            <textarea class="form-control" placeholder="Leave a comment here" id="comment"
-                style="height: 100px"></textarea>
-            <label for="floatingTextarea2">응원댓글</label>
-        </div>
-        <button onclick="save_comment()" type="button" class="btn btn-dark">댓글 남기기</button>
-    </div>
-    <div class="mycards" id="comment-list">
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>새로운 앨범 너무 멋져요!</p>
-                    <footer class="blockquote-footer">호빵맨</footer>
-                </blockquote>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>새로운 앨범 너무 멋져요!</p>
-                    <footer class="blockquote-footer">호빵맨</footer>
-                </blockquote>
-            </div>
-        </div>
-        <div class="card">
-            <div class="card-body">
-                <blockquote class="blockquote mb-0">
-                    <p>새로운 앨범 너무 멋져요!</p>
-                    <footer class="blockquote-footer">호빵맨</footer>
-                </blockquote>
-            </div>
-        </div>
-    </div>
+  </div>
+</div>
 </body>
 </html>
+<script>
+
+      const exampleModal = document.getElementById('exampleModal')
+    exampleModal.addEventListener('show.bs.modal', event => {
+
+  const button = event.relatedTarget
+
+  const recipient = button.getAttribute('data-bs-whatever')
+
+  const modalTitle = exampleModal.querySelector('.modal-title')
+  const modalBodyInput = exampleModal.querySelector('.modal-body input')
+
+  // modalTitle.textContent = `New message to ${recipient}`
+  modalBodyInput.value = recipient
+})
+</script>
